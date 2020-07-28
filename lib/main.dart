@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:revision/widget/chart.dart';
 import 'package:revision/widget/itemInput.dart';
 import 'package:revision/widget/itemlist.dart';
+import 'package:revision/widget/splashscreen.dart';
 
 import 'model/item.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       themeMode: ThemeMode.system,
-      home: MyHomePage(title: 'Personal Expenses'),
+      home: MySplashScreen(),
     );
   }
 }
