@@ -9,52 +9,65 @@ class ChartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          height: 20,
-          child: FittedBox(
-            child: Text(
-              "\$${totalOfDay.toStringAsFixed(0)}",
-              style: TextStyle(color: Theme.of(context).appBarTheme.color),
-            ),
-          ),
-        ),
-        Container(
-          height: 75,
-          width: 10,
-          child: Stack(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor,
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                      color: Theme.of(context).appBarTheme.color, width: 1.0),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Column(
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: constraints.maxHeight * .15,
+              child: FittedBox(
+                child: Text(
+                  "\$${totalOfDay.toStringAsFixed(0)}",
+                  style: TextStyle(color: Theme.of(context).appBarTheme.color),
                 ),
               ),
-              FractionallySizedBox(
-                heightFactor: precentageOfDay,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).appBarTheme.color,
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                        color: Theme.of(context).appBarTheme.color, width: 1.0),
+            ),
+            SizedBox(
+              height: constraints.maxHeight * .05,
+            ),
+            Container(
+              height: constraints.maxHeight * .6,
+              width: 10,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).backgroundColor,
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                          color: Theme.of(context).appBarTheme.color,
+                          width: 1.0),
+                    ),
                   ),
-                ),
-              )
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Text(
-          label,
-          style: TextStyle(color: Theme.of(context).appBarTheme.color),
-        )
-      ],
+                  FractionallySizedBox(
+                    heightFactor: precentageOfDay,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).appBarTheme.color,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                            color: Theme.of(context).appBarTheme.color,
+                            width: 1.0),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: constraints.maxHeight * .05,
+            ),
+            Container(
+              height: constraints.maxHeight * .15,
+              child: Text(
+                label,
+                style: TextStyle(color: Theme.of(context).appBarTheme.color),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }

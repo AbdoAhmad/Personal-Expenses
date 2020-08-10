@@ -56,136 +56,141 @@ class _ItemInputState extends State<ItemInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.fromLTRB(5, 15, 5, 5),
-          child: TextField(
-            controller: _itemName,
-            decoration: InputDecoration(
-              alignLabelWithHint: true,
-              labelText: "Name",
-              hintText: "Name",
-              filled: true,
-              hintStyle: TextStyle(
-                fontSize: 15,
-              ),
-              fillColor: Theme.of(context).accentColor,
-              labelStyle: TextStyle(
-                  color: Theme.of(context).appBarTheme.color, fontSize: 15),
-              enabledBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(width: 2, color: Theme.of(context).cardColor),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(150),
+    return Container(
+      padding: EdgeInsets.fromLTRB(
+          5, 5, 5, MediaQuery.of(context).viewInsets.bottom + 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 15, 5, 5),
+            child: TextField(
+              controller: _itemName,
+              decoration: InputDecoration(
+                alignLabelWithHint: true,
+                labelText: "Name",
+                hintText: "Name",
+                filled: true,
+                hintStyle: TextStyle(
+                  fontSize: 15,
                 ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(width: 2, color: Theme.of(context).cardColor),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(150),
+                fillColor: Theme.of(context).accentColor,
+                labelStyle: TextStyle(
+                    color: Theme.of(context).appBarTheme.color, fontSize: 15),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(width: 2, color: Theme.of(context).cardColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(150),
+                  ),
                 ),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.fromLTRB(5, 10, 5, 5),
-          child: TextField(
-            controller: _itemPrice,
-            decoration: InputDecoration(
-              alignLabelWithHint: true,
-              labelText: "Price",
-              hintText: "Price",
-              filled: true,
-              fillColor: Theme.of(context).accentColor,
-              hintStyle: TextStyle(fontSize: 15),
-              labelStyle: TextStyle(
-                  color: Theme.of(context).appBarTheme.color, fontSize: 15),
-              enabledBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(width: 2, color: Theme.of(context).cardColor),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(150),
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(width: 2, color: Theme.of(context).cardColor),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(150),
-                ),
-              ),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.fromLTRB(20, 10, 0, 0),
-              child: (_pickedDate == null)
-                  ? Container(
-                      padding: EdgeInsets.all(5),
-                      color: Theme.of(context).accentColor,
-                      child: Text(
-                        "No Chosen Date !",
-                        style: TextStyle(
-                          color: Theme.of(context).appBarTheme.color,
-                        ),
-                      ),
-                    )
-                  : Container(
-                      padding: EdgeInsets.all(5),
-                      color: Theme.of(context).accentColor,
-                      child: Text(
-                        "${DateFormat.yMMMd().format(_pickedDate)}",
-                        style: TextStyle(
-                          color: Theme.of(context).appBarTheme.color,
-                        ),
-                      ),
-                    ),
-            ),
-            Container(
-              margin: EdgeInsets.all(5),
-              child: RaisedButton(
-                color: Theme.of(context).accentColor,
-                onPressed: _showDatePicker,
-                child: Text(
-                  "Choose Date",
-                  style: TextStyle(
-                      fontSize: 15, color: Theme.of(context).appBarTheme.color),
-                ),
-                shape: RoundedRectangleBorder(
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(width: 2, color: Theme.of(context).cardColor),
                   borderRadius: BorderRadius.all(
                     Radius.circular(150),
                   ),
                 ),
               ),
-            )
-          ],
-        ),
-        Container(
-          margin: EdgeInsets.all(5),
-          child: RaisedButton(
-            color: Theme.of(context).accentColor,
-            onPressed: _submitData,
-            child: Text(
-              "Add Item",
-              style: TextStyle(
-                  fontSize: 15, color: Theme.of(context).appBarTheme.color),
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(150),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 10, 5, 5),
+            child: TextField(
+              controller: _itemPrice,
+              decoration: InputDecoration(
+                alignLabelWithHint: true,
+                labelText: "Price",
+                hintText: "Price",
+                filled: true,
+                fillColor: Theme.of(context).accentColor,
+                hintStyle: TextStyle(fontSize: 15),
+                labelStyle: TextStyle(
+                    color: Theme.of(context).appBarTheme.color, fontSize: 15),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(width: 2, color: Theme.of(context).cardColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(150),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(width: 2, color: Theme.of(context).cardColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(150),
+                  ),
+                ),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.fromLTRB(20, 10, 0, 0),
+                child: (_pickedDate == null)
+                    ? Container(
+                        padding: EdgeInsets.all(5),
+                        color: Theme.of(context).accentColor,
+                        child: Text(
+                          "No Chosen Date !",
+                          style: TextStyle(
+                            color: Theme.of(context).appBarTheme.color,
+                          ),
+                        ),
+                      )
+                    : Container(
+                        padding: EdgeInsets.all(5),
+                        color: Theme.of(context).accentColor,
+                        child: Text(
+                          "${DateFormat.yMMMd().format(_pickedDate)}",
+                          style: TextStyle(
+                            color: Theme.of(context).appBarTheme.color,
+                          ),
+                        ),
+                      ),
+              ),
+              Container(
+                margin: EdgeInsets.all(5),
+                child: RaisedButton(
+                  color: Theme.of(context).accentColor,
+                  onPressed: _showDatePicker,
+                  child: Text(
+                    "Choose Date",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Theme.of(context).appBarTheme.color),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(150),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.all(5),
+            child: RaisedButton(
+              color: Theme.of(context).accentColor,
+              onPressed: _submitData,
+              child: Text(
+                "Add Item",
+                style: TextStyle(
+                    fontSize: 15, color: Theme.of(context).appBarTheme.color),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(150),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
